@@ -32,13 +32,13 @@ public class CarController {
                 .body(carService.saveNewSubscription(carDto));
     }
 
-    @PutMapping(value = "/employees", produces = {"application/json"}, consumes = {"application/json"})
+    @PutMapping(value = "/cars", produces = {"application/json"}, consumes = {"application/json"})
     public ResponseEntity<CarDto> updateSubscription(@PathVariable (value = "id") Long id, @RequestBody CarDto carDto) {
         return ResponseEntity.ok()
                 .body(carService.updateSubscription(carDto));
     }
 
-    @DeleteMapping(value = "/employees", produces = {"application/json"})
+    @DeleteMapping(value = "/cars", produces = {"application/json"})
     public ResponseEntity<Optional<Car>> deleteSubscription(@RequestBody Long id) {
         return ResponseEntity.ok()
                 .body(carService.deleteSubscription(id));
