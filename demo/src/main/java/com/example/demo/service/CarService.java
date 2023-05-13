@@ -28,8 +28,8 @@ public class CarService {
         return CarMapper.MAPPER.mapToCarDto(savedUser);
     }
 
-    public CarDto updateSubscription(CarDto carDto) {
-        Car existingCar = carRepository.findById(carDto.getId()).orElseThrow(() ->
+    public CarDto updateSubscription(CarDto carDto, Long id) {
+        Car existingCar = carRepository.findById(id).orElseThrow(() ->
                 new UserException("Car plate number: " + carDto.getId() + "not found!"));
 
         existingCar.setBrand(carDto.getBrand());
@@ -49,5 +49,9 @@ public class CarService {
 
     public List<Car> findAllCars() {
         return carRepository.findAll();
+    }
+
+    public Optional<Car> findById(Long id) {
+        return carRepository.findById(id);
     }
 }

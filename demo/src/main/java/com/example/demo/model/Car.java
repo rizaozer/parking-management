@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -11,6 +8,7 @@ import lombok.Data;
 @Table(name = "cars")
 public class Car {
     @Id
+    @GeneratedValue
     private long id;
     private String plateNumber;
     private String color;
