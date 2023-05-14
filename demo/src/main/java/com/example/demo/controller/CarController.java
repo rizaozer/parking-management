@@ -39,8 +39,8 @@ public class CarController {
 //                .body(carService.updateSubscription(carDto));
 //    }
 
-    @DeleteMapping(value = "/cars", produces = {"application/json"})
-    public ResponseEntity<Optional<Car>> deleteSubscription(@RequestBody Long id) {
+    @DeleteMapping(value = "/cars/{id}", produces = {"application/json"})
+    public ResponseEntity<Car> deleteSubscription(@PathVariable Long id) {
         return ResponseEntity.ok()
                 .body(carService.deleteSubscription(id));
     }

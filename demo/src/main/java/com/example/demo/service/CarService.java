@@ -7,6 +7,7 @@ import com.example.demo.model.Car;
 import com.example.demo.repository.CarRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,9 +42,11 @@ public class CarService {
         return CarMapper.MAPPER.mapToCarDto(updatedCar);
     }
 
-    public Optional<Car> deleteSubscription(Long id) {
-        carRepository.deleteById(id);
-        return carRepository.findById(id);
+    public Car deleteSubscription(Long id)  {
+
+        Car car = carRepository.findById(id).orElseThrow(RuntimeException::new);;
+        carRepository.delete(car);
+        return car;
     }
 
 
