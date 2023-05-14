@@ -44,7 +44,7 @@ public class CarService {
 
     public Car deleteSubscription(Long id)  {
 
-        Car car = carRepository.findById(id).orElseThrow(RuntimeException::new);;
+        Car car = carRepository.findById(id).orElseThrow(RuntimeException::new);
         carRepository.delete(car);
         return car;
     }
@@ -54,7 +54,7 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public Optional<Car> findById(Long id) {
-        return carRepository.findById(id);
+    public Car findCarById(Long id) {
+        return carRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 }

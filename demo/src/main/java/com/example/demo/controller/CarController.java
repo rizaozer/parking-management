@@ -33,22 +33,16 @@ public class CarController {
                 .body(carService.saveNewSubscription(carDto));
     }
 
-//    @PutMapping(value = "/cars", produces = {"application/json"}, consumes = {"application/json"})
-//    public ResponseEntity<CarDto> updateSubscription(@PathVariable (value = "id") Long id, @RequestBody CarDto carDto) {
-//        return ResponseEntity.ok()
-//                .body(carService.updateSubscription(carDto));
-//    }
-
     @DeleteMapping(value = "/cars/{id}", produces = {"application/json"})
     public ResponseEntity<Car> deleteSubscription(@PathVariable Long id) {
         return ResponseEntity.ok()
                 .body(carService.deleteSubscription(id));
     }
 
-    @GetMapping(value = "/cars{id}", produces = {"application/json"})
+    @GetMapping(value = "/cars/{id}", produces = {"application/json"})
     public ResponseEntity<Car> getCarById(@PathVariable Long id) {
         return ResponseEntity.ok()
-                .body(carService.findById(id).orElseThrow(() -> new RuntimeException("Not found")));
+                .body(carService.findCarById(id));
     }
 
     @PutMapping(value = "/cars/{id}")

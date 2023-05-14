@@ -32,11 +32,11 @@ class CreateCarComponent extends Component {
             });
         }
     }
+
     saveOrUpdateCar = (e) => {
         e.preventDefault();
         let car = { plateNumber: this.state.plateNumber, color: this.state.color, emailId: this.state.emailId };
 
-        // step 5
         if (this.state.id === '_add') {
             CarService.createCar(car).then(res => {
                 this.props.history.push('/cars');
