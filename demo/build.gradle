@@ -24,6 +24,8 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	implementation group: 'commons-io', name: 'commons-io', version: '2.6'
 }
 
 tasks.named('test') {

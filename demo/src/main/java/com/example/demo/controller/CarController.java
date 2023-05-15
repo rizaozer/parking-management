@@ -51,6 +51,17 @@ public class CarController {
                 .body(carService.updateSubscription(carDetails, id));
     }
 
+//    @GetMapping(value="/divisions", produces = {"application/json"})
+//    public ResponseEntity<PaginatedResponseDto<CarDto>> getAllDivisions(
+//            DivisionSearchDto<Car> searchDto
+//    ) {
+//
+//        PaginatedResponseDto<DivisionDto> divisions = divisionService.findAllDivision(searchDto);
+//        return ResponseEntity
+//                .ok()
+//                .body(divisions);
+//    }
+
 
 
 
